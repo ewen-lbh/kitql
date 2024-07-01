@@ -51,6 +51,18 @@ export const appendSp = (sp?: Record<string, ParamValue | ParamValue[]>, prefix:
   return ''
 }
 
+/** 
+ * check if a given string equals a route id
+ *
+ * Could be used like this:
+ * \`\`\`
+ * if(isRoute($page.route.id, "/some/route/[here]")) { ... }
+ * \`\`\`
+ */
+export const isRoute = <T extends keyof PAGES>(actual: string, expected: T): actual is T => {
+  return actual === expected
+}
+
 /**
  * get the current search params
  * 
